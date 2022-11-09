@@ -1,0 +1,35 @@
+<h1>Sign up below</h1>
+<hr>
+
+<style>
+    h4{
+        color: red;
+        text-decoration: underline;
+    }
+    form, h1, h4{
+        text-align: center;
+    }
+
+</style>
+ 
+{% for message in messages%}
+<h4>{{message}}</h4>
+{% endfor %}
+
+<form method="post" action="">
+    {% csrf_token %}
+    <p>Username:</p>
+    <input  type="text" name="username" placeholder="Enter Username ...">
+    <p>First Name:</p>
+    <input  type="text" name="first_name" placeholder="Enter Username ...">
+    <p>Last Name:</p>
+    <input  type="text" name="last_name" placeholder="Enter Username ...">
+    <p>Email:</p>
+    <input  type="email" name="email" placeholder="Enter Email ...">
+    <p>Password:</p>
+    <input  type="password" name="password">
+    <p>Repeat Password:</p>
+    <input  type="password" name="password2"><br><br>
+    <input type="submit">
+    <hr>
+</form>
