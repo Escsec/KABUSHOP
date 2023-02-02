@@ -1,0 +1,65 @@
+                    <div class="col-lg-4 ">
+                        <div class="card m-1">
+                            <div class="card-body ">
+                                <h5 class="card-title">Username</h5>
+                                <img class="img-fluid" src="{% static 'images/IMG-20220818-WA0018.jpg'%}" alt="product">
+                            </div>
+                            <div class="card-footer">
+                                <h6 class="card-subtitle">Title:</h6>
+                                <h6 class="card-text">Price:</h6>
+                                <h6 class="card-text">Contact:</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 ">
+                        <div class="card m-1">
+                            <div class="card-body ">
+                                <h5 class="card-title">Username</h5>
+                                <img class="img-fluid" src="{% static 'images/IMG-20220623-WA0007.jpg'%}" alt="product">
+                            </div>
+                            <div class="card-footer">
+                                <h6 class="card-subtitle">Title:</h6>
+                                <h6 class="card-text">Price:</h6>
+                                <h6 class="card-text">Contact:</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 ">
+                        <div class="card m-1">
+                            <div class="card-body ">
+                                <h5 class="card-title">Username</h5>
+                                <img class="img-fluid" src="{% static 'images/IMG-20221008-WA0022.jpg' %}" alt="product">
+                            </div>
+                            <div class="card-footer">
+                                <h6 class="card-subtitle">Title:</h6>
+                                <h6 class="card-text">Price:</h6>
+                                <h6 class="card-text">Contact:</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 ">
+                        <div class="card m-1">
+                            <div class="card-body ">
+                                <h5 class="card-title">Username</h5>
+                                <img class="img-fluid" src="{% static 'images/IMG-20221008-WA0023.jpg' %}" alt="product">
+                            </div>
+                            <div class="card-footer">
+                                <h6 class="card-subtitle">Title:</h6>
+                                <h6 class="card-text">Price:</h6>
+                                <h6 class="card-text">Contact:</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 ">
+                        <div class="card m-1">
+                            <div class="card-body ">
+                                <h5 class="card-title">Username</h5>
+                                <img class="img-fluid" src="{% static 'images/IMG-20221008-WA0024.jpg' %}" alt="product">
+                            </div>
+                            <div class="card-footer">
+                                <h6 class="card-subtitle">Title:</h6>
+                                <h6 class="card-text">Price:</h6>
+                                <h6 class="card-text">Contact:</h6>
+                            </div>
+                        </div>
+                    </div>

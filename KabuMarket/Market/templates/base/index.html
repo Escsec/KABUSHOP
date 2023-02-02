@@ -1,5 +1,47 @@
 {% extends 'main.html' %}
-
+{% load static %}
 {% block content %}
-
+    <div class="container">
+        <form method="GET" action="{% url 'index' %}" class="d-flex mt-4 mb-3">
+            <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light bg-success" type="submit">Search</button>
+        </form>
+        <div class="row">
+            <div class="col-lg-8 ">
+                <div class="row">
+                    {% for product in products %}
+                    <div class="col-lg-4">
+                        <a href="/product/{{product.id}}">
+                         <img src="{{product.image.url}}" class="img-fluid"  alt="kabarak students market">
+                        </a>
+                        <h6 style="color: blue;">@{{product.User}}</h6>
+                        <h5>Ksh{{product.price}}</h5>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-4 mt-3 ">  
+                <div class="card mt-1">
+                    <div class="card-header bg-info">
+                        <h5>Advertisment</h5>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Trending now</h4>
+                        <h6>some sample advert</h6>
+                        <img class="img-fluid" src="{% static 'images/IMG-20220818-WA0018.jpg' %}" alt="">
+                    </div>
+                </div>
+                <div class="card mt-1">
+                    <div class="card-header bg-info">
+                        <h5>Advertisment</h5>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Trending now</h4>
+                        <h6>some sample advert</h6>
+                        <img class="img-fluid" src="{% static 'images/IMG-20220623-WA0007.jpg' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>            
+    </div>
 {% endblock %}

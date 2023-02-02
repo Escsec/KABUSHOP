@@ -1,17 +1,17 @@
 from django.contrib import auth, messages
-from django.contrib.auth import authenticate, login, logout  # type: ignore
+from django.contrib.auth import authenticate, login, logout 
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.http import HttpResponse
+from django.db.models import Q
 from django.shortcuts import redirect, render
+from .models import Profile, Category, Product, User
 
 
 def register(request):
     if request.method == 'POST':
         username = request.POST['username']
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        email =request.POST['email']
+        email = request.POST['email']
         password =request.POST['password']
         password2 =request.POST['password2']
 
@@ -24,7 +24,7 @@ def register(request):
                 messages.info(request, 'Username Not Available !')
                 return redirect('register')
             else:
-                user = User.objects.create_user(username=username,first_name=first_name, last_name=last_name, email=email, password=password)
+                user = User.objects.create_user(username=username, email=email, password=password)
                 user.save();
                 messages.info(request,'Signup success')
                 return redirect('login')
@@ -63,7 +63,25 @@ def logout(request):
 
 @login_required(login_url='login')
 def profile(request, pk):
-    return render(request, 'base/profile.html')
+    profiles = Profile.objects.all()
+    profiles = Profile.objects.filter(id=pk)
+    context = {'profiles': profiles}
+    return render(request, 'base/profile.html', context)
 
 def index(request):
-    return render(request, 'base/index.html')
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
+    
+    product_search = Product.objects.filter(
+        Q(category__Category__icontains=q) |
+        Q(title__icontains=q) |
+        Q(description__icontains=q)
+    )
+
+    products = Product.objects.all()
+    context = { 'products' : products, 'product_search' : product_search }
+    return render(request, 'base/index.html', context)
+
+
+@login_required(login_url='login')
+def product(request, pk):
+    return render(request, 'base/product.html')
